@@ -33,4 +33,8 @@ async def main():
             await write_file(receive_ts, transaction_time)
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except KeyboardInterrupt:
+        print("Программа закрыта")
