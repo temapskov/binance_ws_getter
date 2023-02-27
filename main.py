@@ -5,7 +5,7 @@ import json
 import time
 from aiocsv import AsyncWriter
 
-SOCKET = "wss://fstream.binance.com/stream?streams=btcusdt@depth"
+SOCKET = "wss://fstream.binance.com/stream?streams=btcusdt@depth@0ms"
 OUTPUT_FILENAME = "output.csv"
 
 
