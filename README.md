@@ -10,3 +10,25 @@ Logging выводит данную строку в терминал.
 ```
 pip install -r requirements.txt
 ```
+
+## Установка с виртуальным окружением
+- Склонируем репозиторий
+```
+git clone git@github.com:temapskov/binance_ws_getter.git
+```
+- Перейдем в директорию с проектом `cd binance_ws_getter/` и создадим виртуальное окружение Python, версию можно использовать и `3.9+`
+```
+python3.11 -m venv .venv
+```
+- Активируем виртуальное окружение:
+```
+. .venv/bin/activate
+```
+- Установим зависимости:
+```
+pip install -r requirements.txt
+```
+- Запустим скрипт:
+```
+python main.py
+```
