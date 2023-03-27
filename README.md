@@ -4,6 +4,8 @@
 
 `receive_ts;transaction_time;interval`, где interval - это `receive_ts` - `transaction_time`.
 
+Logging выводит данную строку в терминал.
+
 ## Установка
 ```
 pip install -r requirements.txt

@@ -1,24 +1,26 @@
 import asyncio
 import aiofiles
-import websockets
 import json
-import time
 from aiocsv import AsyncWriter
+import logging
+import time
+import websockets
+
 
 SOCKET = "wss://fstream.binance.com/stream?streams=btcusdt@depth@0ms"
 OUTPUT_FILENAME = "output.csv"
-
+logging.basicConfig(level=logging.INFO, format='%(message)s')
 
 async def write_file(receive_ts: int, transaction_time: int):
-    interval = 0
-
     async with aiofiles.open(OUTPUT_FILENAME, "a") as csvfile:
         writer = AsyncWriter(csvfile, delimiter=";")
 
         if transaction_time:
             interval = receive_ts - transaction_time
+            logging.info(f"{receive_ts};{transaction_time};{interval}")
             await writer.writerow([receive_ts, transaction_time, interval])
         else:
+            logging.error("Ошибка получения данных")
             await writer.writerow(["Ошибка получения данных"])
 
 
